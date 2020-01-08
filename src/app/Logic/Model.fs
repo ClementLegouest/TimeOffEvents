@@ -57,7 +57,7 @@ module Logic =
         if (request1.End >= request2.Start && request1.End <= request2.End)
             || (request1.Start >= request2.Start && request1.Start <= request2.End)
         then true
-        else false //TODO: write a function that checks if 2 requests overlap
+        else false
 
     let overlapsWithAnyRequest (otherRequests: TimeOffRequest seq) request =
         false //TODO: write this function using overlapsWith

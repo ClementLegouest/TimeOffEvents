@@ -53,6 +53,9 @@ module HttpHandlers =
                     return! (BAD_REQUEST message) next ctx
             }
 
+    //TODO : fonction denyRequest
+    //TODO : fonction cancelRequest
+
 // ---------------------------------
 // Web app
 // ---------------------------------
@@ -84,10 +87,12 @@ let webApp (eventStore: IStore<UserId, RequestEvent>) =
                         choose [
                             POST >=> route "/request" >=> HttpHandlers.requestTimeOff (handleCommand user)
                             POST >=> route "/validate-request" >=> HttpHandlers.validateRequest (handleCommand user)
+                            //TODO : Route DELETE /deny-request
+                            //TODO : Route DELETE /cancel-request
                         ]
                     ))
             ])
-        setStatusCode 404 >=> text "Not Found" ]
+        setStatusCode 404 >=> text "Not Found Perso" ]
 
 // ---------------------------------
 // Error handler
