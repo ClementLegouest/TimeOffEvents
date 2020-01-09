@@ -26,8 +26,8 @@ let overlapTests =
       let request = {
         UserId = "jdoe"
         RequestId = Guid.NewGuid()
-        Start = { Date = DateTime(2019, 10, 1); HalfDay = AM }
-        End = { Date = DateTime(2019, 10, 1); HalfDay = PM }
+        Start = { Date = DateTime(2020, 10, 1); HalfDay = AM }
+        End = { Date = DateTime(2020, 10, 1); HalfDay = PM }
       }
 
       Expect.isTrue (Logic.overlapsWith request request) "A request should overlap with istself"
@@ -37,15 +37,15 @@ let overlapTests =
       let request1 = {
         UserId = "jdoe"
         RequestId = Guid.NewGuid()
-        Start = { Date = DateTime(2019, 10, 1); HalfDay = AM }
-        End = { Date = DateTime(2019, 10, 1); HalfDay = PM }
+        Start = { Date = DateTime(2020, 10, 1); HalfDay = AM }
+        End = { Date = DateTime(2020, 10, 1); HalfDay = PM }
       }
 
       let request2 = {
         UserId = "jdoe"
         RequestId = Guid.NewGuid()
-        Start = { Date = DateTime(2019, 10, 2); HalfDay = AM }
-        End = { Date = DateTime(2019, 10, 2); HalfDay = PM }
+        Start = { Date = DateTime(2020, 10, 2); HalfDay = AM }
+        End = { Date = DateTime(2020, 10, 2); HalfDay = PM }
       }
 
       Expect.isFalse (Logic.overlapsWith request1 request2) "The requests don't overlap"
@@ -59,8 +59,8 @@ let creationTests =
       let request = {
         UserId = "jdoe"
         RequestId = Guid.NewGuid()
-        Start = { Date = DateTime(2019, 12, 27); HalfDay = AM }
-        End = { Date = DateTime(2019, 12, 27); HalfDay = PM } }
+        Start = { Date = DateTime(2020, 12, 27); HalfDay = AM }
+        End = { Date = DateTime(2020, 12, 27); HalfDay = PM } }
 
       Given [ ]
       |> ConnectedAs (Employee "jdoe")
@@ -76,8 +76,8 @@ let validationTests =
       let request = {
         UserId = "jdoe"
         RequestId = Guid.NewGuid()
-        Start = { Date = DateTime(2019, 12, 27); HalfDay = AM }
-        End = { Date = DateTime(2019, 12, 27); HalfDay = PM } }
+        Start = { Date = DateTime(2020, 12, 27); HalfDay = AM }
+        End = { Date = DateTime(2020, 12, 27); HalfDay = PM } }
 
       Given [ RequestCreated request ]
       |> ConnectedAs Manager
